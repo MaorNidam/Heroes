@@ -59,7 +59,7 @@ export class HeroService {
   }
 
   searchHeroes(term: string): Observable<IHero[]> {
-    if (!term.trim) {
+    if (!term.trim()) {
       return of([]);
     }
     return this.http.get<IHero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
